@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Insert</title>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div th:include="header"></div>
+<div style="border-bottom:1px dotted; height:40px">
+	<div style="position:absolute; padding:10px">
+		<a href="menu">[メニュー]</a>&nbsp;&nbsp;
+		<a href="list">[書籍一覧]</a>
+	</div>
+	<div style="font-size:20px; text-align:center; padding:8px">書籍登録</div>
+</div>
+<form action="insert" method="post">
+<div align="center">
+<br>
+<table>
+	<tr>
+		<th align="left" style="width:80px; border: solid 1px gray">&nbsp;ISBN</th>
+		<td style="border: solid 1px silver"><input type="number" required="required" name="isbn" style="width:200px; border: 0px"></td>
+	</tr>
+	<tr>
+		<th align="left" style="width:80px; border: solid 1px gray">&nbsp;TITLE</th>
+		<td style="border: solid 1px silver"><input type="text" required="required" name="title" style="width:200px; border: 0px"></td>
+	</tr>
+	<tr>
+		<th align="left" style="width:80px; border: solid 1px gray">&nbsp;価格</th>
+		<td style="border: solid 1px silver"><input type="number" required="required" name="price" style="width:200px; border: 0px"></td>
+	</tr>
+	<tr>
+		<td colspan ="2" align="center">
+			<br><input type="submit" value="登録">
+		</td>
+	</tr>
+</table>
+</div>
+</form>
+<div th:include="footer"></div>
+</body>
+</html>

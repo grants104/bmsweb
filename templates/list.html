@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>List</title>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div th:include="header"></div>
+<div style="border-bottom:1px dotted; height:40px">
+	<div style="position:absolute; padding:10px">
+		<a href="menu">[メニュー]</a>&nbsp;&nbsp;
+		<a href="insert">[書籍登録]</a>
+	</div>
+	<div style="font-size:20px; text-align:center; padding:8px">書籍一覧</div>
+</div>
+<br>
+<div align="center">
+<form action="list" method="post" style="display: inline; margin: 0">
+<select name="category">
+<option value="isbn">ISBN</option>
+<option value="title">Title</option>
+<option value="price">価格</option>
+</select>&nbsp;&nbsp;
+<input type="text" name="input">&nbsp;&nbsp;
+<input type="submit" name="search" value="検索">&nbsp;&nbsp;
+</form>
+<input type="button" name="search_all" value="全件表示" onClick="location.href='list'">
+<br><br>
+<table>
+	<thead>
+		<tr align="center">
+			<th style="width:100px; border: solid 1px gray">ISBN</th>
+			<th style="width:100px; border: solid 1px gray">TITLE</th>
+			<th style="width:100px; border: solid 1px gray">価格</th>
+			<th style="width:200px; border: solid 1px gray">機能</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="select:${select}" align="center">
+			<td style="border: solid 1px silver">
+			    <form name="form1" method="post">
+			      <input type="hidden" name="isbn" th:value="${select.isbn}">
+			    </form>
+				<a th:href="@{'detail?isbn=' + ${select.isbn}}"><span th:text="${select.isbn}"></span></a>
+			</td>
+			<td style="border: solid 1px silver"><span th:text="${select.title}"></span></td>
+			<td style="border: solid 1px silver"><span th:text="${select.price}"></span>円</td>
+			<td style="border: solid 1px silver"><a th:href="@{'update?isbn=' + ${select.isbn}}">変更</a>&nbsp;&nbsp;
+				<a th:href="@{'delete?isbn=' + ${select.isbn}}">削除</a>&nbsp;&nbsp;
+				<a th:href="@{'insertIntCart?isbn=' + ${select.isbn}}">カートに入れる</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<div th:include="footer"></div>
+</body>
+</html>

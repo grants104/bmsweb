@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ShowOrderedItem</title>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div th:include="header"></div>
+<div style="border-bottom:1px dotted; height:40px">
+	<div style="position:absolute; padding:10px">
+		<a href="menu">[メニュー]</a>&nbsp;&nbsp;
+	</div>
+	<div style="font-size:20px; text-align:center; padding:8px">購入状況</div>
+</div>
+<br><br>
+<div align="center">
+<table>
+	<thead>
+		<tr align="center">
+			<th style="width:100px; border: solid 1px gray">ユーザー</th>
+			<th style="width:100px; border: solid 1px gray">Title</th>
+			<th style="width:100px; border: solid 1px gray">注文日</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="select:${select}" align="center">
+			<td style="border: solid 1px silver"><span th:text="${select.id}"></span></td>
+			<td style="border: solid 1px silver"><span th:text="${select.title}"></span></td>
+			<td style="border: solid 1px silver"><span th:text="${select.date}"></span></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<div th:include="footer"></div>
+</body>
+</html>

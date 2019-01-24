@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>BuyConfirm</title>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div th:include="header"></div>
+<div style="border-bottom:1px dotted; height:40px">
+	<div style="position:absolute; padding:10px">
+		<a href="menu">[メニュー]</a>&nbsp;&nbsp;
+		<a href="list">[書籍一覧]</a>
+	</div>
+	<div style="font-size:20px; text-align:center; padding:8px">購入品確認</div>
+</div>
+<div align="center">
+<br><br>
+<div style="font-size:20px">下記の商品を購入しました。<br>ご利用ありがとうございました。</div>
+<br><br>
+<table>
+	<thead>
+		<tr align="center">
+			<th style="width:100px; border: solid 1px gray">ISBN</th>
+			<th style="width:100px; border: solid 1px gray">TITLE</th>
+			<th style="width:100px; border: solid 1px gray">価格</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="select:${select}" align="center">
+			<td width=100px style="border: solid 1px silver"><span th:text="${select.isbn}"></span></td>
+			<td width=100px style="border: solid 1px silver"><span th:text="${select.title}"></span></td>
+			<td width=100px style="border: solid 1px silver"><span th:text="${select.price}"></span>円</td>
+		</tr>
+		<tr><td><br></td></tr>
+		<tr align="center">
+			<td></td>
+			<td style="border: solid 1px gray">合計</td>
+			<td style="border: solid 1px silver"><span th:text="${total}"></span>円</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<div th:include="footer"></div>
+</body>
+</html>

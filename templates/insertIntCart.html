@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>InsertIntCart</title>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div th:include="header"></div>
+<div style="border-bottom:1px dotted; height:40px">
+	<div style="position:absolute; padding:10px">
+		<a href="menu">[メニュー]</a>&nbsp;&nbsp;
+		<a href="list">[書籍一覧]</a>
+	</div>
+	<div style="font-size:20px; text-align:center; padding:8px">書籍一覧</div>
+</div>
+<br>
+<div align="center">
+<br><div style="font-size:20px">下記の書籍をカートに追加しました。</div><br><br>
+<table>
+	<tr align="left">
+		<td width=70px style="border: solid 1px gray">&nbsp;ISBN</td>
+		<td width=70px style="border: solid 1px silver">&nbsp;<span th:text="${select.isbn}"></span></td>
+	</tr>
+	<tr align="left">
+		<td width=70px style="border: solid 1px gray">&nbsp;Title</td>
+		<td width=70px style="border: solid 1px silver">&nbsp;<span th:text="${select.title}"></span></td>
+	</tr>
+	<tr align="left">
+		<td width=70px style="border: solid 1px gray">&nbsp;価格</td>
+		<td width=70px style="border: solid 1px silver">&nbsp;<span th:text="${select.price}"></span>円</td>
+	</tr>
+	<tr>
+		<td colspan ="2" align="center">
+			<br><input type="button" name="showCart" value="カート確認" onClick="location.href='showCart'">
+		</td>
+	</tr>
+</table>
+</div>
+<div th:include="footer"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Menu</title>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div th:include="header"></div>
+<div align="right" style="border-bottom: 1px dotted; height: 40px; font-size:14px">
+<table>
+	<tr><td>名前:&nbsp;<span th:text="${session.id}"></span></td></tr>
+	<tr><td>権限:&nbsp;<span th:text="${session.authority}"></span></td></tr>
+</table>
+</div>
+<div align="center" style="border-bottom: 1px dotted; height: 20px; font-size: 20px; padding: 10px">
+MENU
+</div>
+<div align="center">
+<table>
+	<tr><td><br><a href="list">【書籍一覧】</a></td></tr>
+	<tr><td><br><a href="insert">【書籍登録】</a></td></tr>
+	<tr><td><br><a href="showCart">【カート状況確認】</a></td></tr>
+	<tr><td><br><a href="insertIniData">【初期データ登録(データがない場合のみ)】</a></td></tr>
+	<tr><td><br><a href="showOrderedItem">【購入状況確認】</a></td></tr>
+	<tr><td><br><a href="logout">【ログアウト】</a></td></tr>
+</table>
+</div>	
+<div th:include="footer"></div>
+</body>
+</html>
